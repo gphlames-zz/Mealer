@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Breakfast" representedClassName="Breakfast" syncable="YES" codeGenerationType="class">
+        <attribute name="cookware" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="ingredients" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="mealimage" attributeType="Binary"/>
+        <attribute name="steps" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="timeOfDay" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="brekafastDailyPlanRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyPlanDetails" inverseName="breakFastrelationship" inverseEntity="DailyPlanDetails"/>
+    </entity>
+    <entity name="CustomerDetails" representedClassName="CustomerDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="age" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="allergies" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="birthday" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="chosenchoices" attributeType="Transformable" customClassName=".[String:Bool]"/>
+        <attribute name="cm" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="country" attributeType="String"/>
+        <attribute name="currentweight" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="customerID" attributeType="String"/>
+        <attribute name="desiredweight" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="feet" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="feetboolean" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="firstname" attributeType="String"/>
+        <attribute name="inches" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastname" attributeType="String"/>
+        <attribute name="phonenumber" attributeType="String"/>
+        <attribute name="pound" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sex" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="DailyPlanDetails" representedClassName=".DailyPlanDetails" parentEntity="PlanCollection" syncable="YES" codeGenerationType="class">
+        <attribute name="breakfast" attributeType="Transformable" customClassName=".Breakfast"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dinner" attributeType="Transformable" customClassName=".Dinner"/>
+        <attribute name="lunch" attributeType="Transformable" customClassName=".Lunch"/>
+        <attribute name="monthly" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="others" attributeType="Transformable" customClassName=".[Others]"/>
+        <attribute name="weekly" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="yearly" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="breakFastrelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Breakfast" inverseName="brekafastDailyPlanRelationship" inverseEntity="Breakfast"/>
+        <relationship name="dinnerRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dinner" inverseName="dinnerDailyRelationship" inverseEntity="Dinner"/>
+        <relationship name="lunchrelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lunch" inverseName="lunchDailyPlanRelationship" inverseEntity="Lunch"/>
+        <relationship name="otherRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Others" inverseName="othersDailyPlanRelationship" inverseEntity="Others"/>
+        <relationship name="parentRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlanCollection" inverseName="dailyChildRelationship" inverseEntity="PlanCollection"/>
+    </entity>
+    <entity name="Dinner" representedClassName="Dinner" syncable="YES" codeGenerationType="class">
+        <attribute name="cookware" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="ingredients" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="mealimage" attributeType="Binary"/>
+        <attribute name="steps" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="timeOfDay" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="dinnerDailyRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyPlanDetails" inverseName="dinnerRelationship" inverseEntity="DailyPlanDetails"/>
+    </entity>
+    <entity name="Lunch" representedClassName="Lunch" syncable="YES" codeGenerationType="class">
+        <attribute name="cookware" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="ingredients" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="mealimage" attributeType="Binary"/>
+        <attribute name="steps" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="timeOfDay" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="lunchDailyPlanRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyPlanDetails" inverseName="lunchrelationship" inverseEntity="DailyPlanDetails"/>
+    </entity>
+    <entity name="Others" representedClassName="Others" syncable="YES" codeGenerationType="class">
+        <attribute name="cookware" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="ingredients" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="mealimage" attributeType="Binary"/>
+        <attribute name="steps" attributeType="Transformable" customClassName=".[String]"/>
+        <attribute name="timeOfDay" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="othersDailyPlanRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyPlanDetails" inverseName="otherRelationship" inverseEntity="DailyPlanDetails"/>
+    </entity>
+    <entity name="PlanCollection" representedClassName=".PlanCollection" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="planDetails" attributeType="Transformable" customClassName=".[DailyPlanDetails]"/>
+        <attribute name="planImage" attributeType="Binary" customClassName="Data"/>
+        <attribute name="primaryPlan" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="dailyChildRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailyPlanDetails" inverseName="parentRelationship" inverseEntity="DailyPlanDetails"/>
+        <relationship name="superParentRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SuperPlanCollection" inverseName="childPlanelationship" inverseEntity="SuperPlanCollection"/>
+    </entity>
+    <entity name="SuperPlanCollection" representedClassName="SuperPlanCollection" syncable="YES" codeGenerationType="class">
+        <attribute name="planCollectionDetails" attributeType="Transformable" customClassName="[PlanCollection]"/>
+        <relationship name="childPlanelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlanCollection" inverseName="superParentRelationship" inverseEntity="PlanCollection"/>
+    </entity>
+    <elements>
+        <element name="CustomerDetails" positionX="-299.13671875" positionY="-56.18359375" width="128" height="298"/>
+        <element name="DailyPlanDetails" positionX="43.32421875" positionY="151.0390625" width="128" height="238"/>
+        <element name="PlanCollection" positionX="38.4296875" positionY="-44.74609375" width="128" height="148"/>
+        <element name="SuperPlanCollection" positionX="27.11328125" positionY="-166.8515625" width="128" height="73"/>
+        <element name="Breakfast" positionX="-130.3515625" positionY="28.6171875" width="128" height="133"/>
+        <element name="Lunch" positionX="-135.04296875" positionY="210.35546875" width="128" height="133"/>
+        <element name="Dinner" positionX="216.9140625" positionY="305.1328125" width="128" height="133"/>
+        <element name="Others" positionX="210.4921875" positionY="138.53125" width="128" height="133"/>
+    </elements>
+</model>
