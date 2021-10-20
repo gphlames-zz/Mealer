@@ -51,11 +51,11 @@ extension PlansTableViewController: UITableViewDataSource, UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! planandmealTableViewCell
-        cell.imageview.image = UIImage(data: (plans?[indexPath.section].planImage)!)
-        cell.nameLabel.attributedText = NSAttributedString(string: (plans?[indexPath.section].name)!, attributes: appDelegate.myAppfontAttributes14)
+        //cell.imageview.image = UIImage(data: (plans?[indexPath.section].planImage)!)
+        cell.nameLabel.attributedText = NSAttributedString(string: (plans?[indexPath.section].name)!, attributes: fontData.arial14)
         let datefomatter = DateFormatter()
         let date = datefomatter.string(from: (plans?[indexPath.section].dateCreated)!)
-        cell.timeLabel.attributedText = NSAttributedString(string: date, attributes: appDelegate.myAppfontAttributes12)
+        cell.timeLabel.attributedText = NSAttributedString(string: date, attributes: fontData.arial12)
         return cell
     }
     
@@ -82,6 +82,17 @@ extension PlansTableViewController: UITableViewDataSource, UITableViewDelegate{
                 let ind = NSMutableIndexSet()
                 ind.add(indexPath.section)
                 self.tableView.deleteSections(ind as IndexSet, with: .automatic)
+                context.delete((plans?[indexPath.section])!)
+                plans?.remove(at: indexPath.section)
+                do{
+                   try  context.save()
+                }catch{
+                    let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        alertController.dismiss(animated: true, completion: nil)
+                    }))
+                    present(alertController, animated: true, completion: nil)
+                }
             }else{
                 let center = UNUserNotificationCenter.current()
                 center.removeAllDeliveredNotifications()
@@ -89,6 +100,17 @@ extension PlansTableViewController: UITableViewDataSource, UITableViewDelegate{
                 let ind = NSMutableIndexSet()
                 ind.add(indexPath.section)
                 self.tableView.deleteSections(ind as IndexSet, with: .automatic)
+                context.delete((plans?[indexPath.section])!)
+                plans?.remove(at: indexPath.section)
+                do{
+                   try  context.save()
+                }catch{
+                    let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        alertController.dismiss(animated: true, completion: nil)
+                    }))
+                    present(alertController, animated: true, completion: nil)
+                }
             }
         }
     }

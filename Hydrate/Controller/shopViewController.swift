@@ -22,6 +22,8 @@ class shopViewController: UIViewController {
         shopview.setUpConstraints()
         shopview.collectionView.delegate = self
         shopview.collectionView.dataSource = self
+        shopview.collectionView.showsVerticalScrollIndicator = false
+        shopview.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tabBarController?.tabBar.frame.size.height ?? 30, right: 0)
         shopview.collectionView.register(shopCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         
     }
@@ -43,6 +45,5 @@ extension shopViewController: UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(5)
     }
-    
     
 }

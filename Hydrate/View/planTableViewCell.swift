@@ -9,24 +9,28 @@
 import UIKit
 
 class planTableViewCell: UITableViewCell {
+    
     lazy var imageview: UIImageView = {
         let imageview = UIImageView()
         imageview.contentMode = .scaleAspectFit
         imageview.translatesAutoresizingMaskIntoConstraints = false
         return imageview
     }()
+    
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         return label
     }()
+    
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .lightGray
         return label
     }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
        isUserInteractionEnabled = true
@@ -43,7 +47,4 @@ class planTableViewCell: UITableViewCell {
         NSLayoutConstraint(item: timeLabel, attribute: .leading, relatedBy: .equal, toItem: imageview, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: timeLabel, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
     }
-
-   
-
 }

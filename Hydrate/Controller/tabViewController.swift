@@ -8,43 +8,53 @@
 
 import UIKit
 
+extension UITabBarController{
+    
+    func setbarappearance() {
+        if #available(iOS 15.0, *) {
+            let navigationappearance = UITabBarAppearance()
+            navigationappearance.configureWithOpaqueBackground()
+            navigationappearance.backgroundColor = .black
+            self.tabBar.standardAppearance = navigationappearance
+            self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
+        } else {
+            self.tabBar.barTintColor = .black
+        }
+    }
+    
+}
 class tabViewController: UIViewController {
-    private var tab: UITabBarController?
     override func viewDidLoad() {
         super.viewDidLoad()
        let tabbaricons = ["house","cart","book"]
-        let tabb = UITabBarController()
-        let home = UINavigationController(rootViewController: HomeViewController())
-        let shop = UINavigationController(rootViewController: shopViewController())
-        let learn_more = UINavigationController(rootViewController: howtouseViewController())
-        home.title = "Home"
-        shop.title = "Shop"
-        learn_more.title = "Learn more"
-
-        tabb.setViewControllers([home,shop,learn_more], animated: false)
-        tabb.modalPresentationStyle = .fullScreen
-        guard let items = tabb.tabBar.items else{return}
+        let tabcontroller = configureTabBar()
+        guard let items = tabcontroller.tabBar.items else{return}
         for i in 0..<tabbaricons.count{
-            if #available(iOS 13.0, *) {
+            if i == 2{
+                items[i].image = UIImage(named: "rice bowl")
+                items[i+1].image = UIImage(systemName: tabbaricons[i])
+                continue
+            }else{
                 items[i].image = UIImage(systemName: tabbaricons[i])
-            } else {
-                // Fallback on earlier versions
             }
         }
-        tabb.tabBar.barTintColor = .black
-        tab = tabb
-        present(tabb, animated: true)
+        tabcontroller.setbarappearance()
+        present(tabcontroller, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureTabBar() -> UITabBarController {
+        let tabcontroller = UITabBarController()
+        let homeController = UINavigationController(rootViewController: HomeViewController())
+        let shopController = UINavigationController(rootViewController: shopViewController())
+        let learnMoreController = UINavigationController(rootViewController: howtouseViewController())
+        let mealSearchController = UINavigationController(rootViewController: recipeSearchViewController())
+        homeController.title = "Home"
+        shopController.title = "Shop"
+        learnMoreController.title = "Learn more"
+        mealSearchController.title = "Foods"
+        tabcontroller.setViewControllers([homeController,shopController,mealSearchController,learnMoreController], animated: false)
+        tabcontroller.modalPresentationStyle = .fullScreen
+        return tabcontroller
     }
-    */
 
 }

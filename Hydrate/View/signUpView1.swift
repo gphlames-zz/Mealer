@@ -11,11 +11,7 @@ import UIKit
 class signUpView1: UIView {
     var backButton: UIButton = {
         let button = UIButton()
-        if #available(iOS 13.0, *) {
-            button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
-        } else {
-            button.setTitle("Back", for: .normal)
-        }
+        button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

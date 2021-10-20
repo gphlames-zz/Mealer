@@ -8,11 +8,14 @@
 
 import UIKit
 import CoreData
+
+
 class signUpViewController1: UIViewController {
     var customerpriorities = CustomerChoices().choices
     let signUpView = signUpView1()
-    var customerdetails = CustomerDetail()
-    let keys = Array(CustomerChoices().choices.keys)
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var customerdetails: CustomerDetails?
+    var keys:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -28,6 +31,9 @@ class signUpViewController1: UIViewController {
         signUpView.collection.delegate = self
         signUpView.collection.dataSource = self
         signUpView.collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        customerdetails = CustomerDetails(context: context)
+        customerdetails?.chosenchoices = customerpriorities
+        keys = Array((customerdetails?.chosenchoices!.keys)!)
         signUpView.collection.reloadData()
     }
    
@@ -54,8 +60,7 @@ extension signUpViewController1:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         cell.imageview = UIImageView(image: UIImage(named: "\(keys[indexPath.row])"))
-        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Arial", size: 12)]
-        cell.label.attributedText = NSAttributedString(string: keys[indexPath.row], attributes: attributes)
+        cell.label.attributedText = NSAttributedString(string: keys[indexPath.row], attributes: [.font:UIFont(name: "Arial", size: 12)])
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.backgroundColor = UIColor(named: "white smoke")
         cell.setUpviews()
@@ -71,17 +76,18 @@ extension signUpViewController1:UICollectionViewDelegate,UICollectionViewDataSou
 //    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        if customerpriorities[cell.label.text!] == false{
+        if customerdetails?.chosenchoices![cell.label.text!] == false{
             customerpriorities[cell.label.text!] = true
             cell.layer.borderWidth = 0.3
             cell.layer.borderColor = CGColor(red: 0, green: 1.0, blue: 0, alpha: 1.0)
             cell.label.textColor = UIColor(cgColor: CGColor(red: 0, green: 1.0, blue: 0, alpha: 1.0))
             cell.imageview.image = UIImage(named: "\(cell.label.text! + ".green")")
+            
         }
         else{
-            customerpriorities[cell.label.text!] = false
+            customerdetails?.chosenchoices![cell.label.text!] = false
                 cell.layer.borderWidth = 0
-                cell.label.textColor = UIColor(cgColor: CGColor(red: 0, green: 0, blue: 0, alpha: 1.0))
+            cell.label.textColor = .black
                 cell.imageview.image = UIImage(named: "\(cell.label.text!)")
                 cell.layer.borderWidth = 0
         }

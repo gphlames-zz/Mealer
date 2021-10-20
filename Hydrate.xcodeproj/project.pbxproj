@@ -10,6 +10,10 @@
 		AF787C69ED2CF21B65F64D38 /* Pods_Hydrate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34790195C77AC60977BD41A /* Pods_Hydrate.framework */; };
 		CE236146260918B2003A4288 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE236145260918B2003A4288 /* CollectionViewCell.swift */; };
 		CE236149260A1801003A4288 /* signUpView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE236148260A1801003A4288 /* signUpView2.swift */; };
+		CE2A906526A1B05B00743620 /* addingplanViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A906426A1B05B00743620 /* addingplanViewController2.swift */; };
+		CE37D90A26E3D35000311581 /* recipeparentdetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D90926E3D35000311581 /* recipeparentdetailsViewController.swift */; };
+		CE37D90C26E3D3A500311581 /* recipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D90B26E3D3A500311581 /* recipeView.swift */; };
+		CE37D90E26E3EBE100311581 /* recipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D90D26E3EBE100311581 /* recipeViewController.swift */; };
 		CE503C20258C024900BE666E /* howtouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE503C1F258C024900BE666E /* howtouseViewController.swift */; };
 		CE503C232595C7BC00BE666E /* addingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE503C222595C7BB00BE666E /* addingViewController.swift */; };
 		CE503C2C25C067B600BE666E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE503C2B25C067B600BE666E /* StoreKit.framework */; };
@@ -29,19 +33,35 @@
 		CE76407124FE3205002EF9C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE76406F24FE3205002EF9C4 /* LaunchScreen.storyboard */; };
 		CE76408624FF921A002EF9C4 /* PlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76408524FF921A002EF9C4 /* PlansTableViewController.swift */; };
 		CE76408E2503D4F2002EF9C4 /* customizedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76408D2503D4F2002EF9C4 /* customizedCell.swift */; };
-		CE76409025040E17002EF9C4 /* customTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76408F25040E17002EF9C4 /* customTableViewController.swift */; };
-		CE7B1D1B250F864200F1DD43 /* showViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7B1D1A250F864200F1DD43 /* showViewController.swift */; };
-		CE8048A225D5DD4600C98F92 /* eventdetailscontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048A125D5DD4600C98F92 /* eventdetailscontroller.swift */; };
 		CE8048A725DEA9D700C98F92 /* paymentmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048A625DEA9D700C98F92 /* paymentmodel.swift */; };
 		CE8048AC25F8EDF900C98F92 /* startUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048AB25F8EDF900C98F92 /* startUPViewController.swift */; };
 		CE8048B225FA5FD700C98F92 /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048B125FA5FD700C98F92 /* tabViewController.swift */; };
 		CE8048B525FA606200C98F92 /* shopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048B425FA606200C98F92 /* shopViewController.swift */; };
 		CE8048B825FBC60C00C98F92 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048B725FBC60C00C98F92 /* loginViewController.swift */; };
 		CE8048BF2602403800C98F92 /* signUpViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048BE2602403800C98F92 /* signUpViewController1.swift */; };
-		CE8048C22602420C00C98F92 /* CustomerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048C12602420C00C98F92 /* CustomerDetails.swift */; };
-		CE89CE5E26775E5D000724FA /* addingplanViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CE5D26775E5D000724FA /* addingplanViewController2.swift */; };
+		CE8048C22602420C00C98F92 /* CustomerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8048C12602420C00C98F92 /* CustomerDetail.swift */; };
+		CE89CEAE267FB1F6000724FA /* startUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEAD267FB1F6000724FA /* startUpView.swift */; };
+		CE89CEB02680B3BE000724FA /* menuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEAF2680B3BE000724FA /* menuTableViewController.swift */; };
+		CE89CEB22680EE2B000724FA /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEB12680EE2B000724FA /* profileViewController.swift */; };
+		CE89CEB62680EFB6000724FA /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEB52680EFB6000724FA /* settingsViewController.swift */; };
+		CE89CEB826838A4E000724FA /* signinClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEB726838A4E000724FA /* signinClass.swift */; };
+		CE89CEBA26838ECD000724FA /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEB926838ECD000724FA /* loginView.swift */; };
+		CE89CEBC2683938B000724FA /* fontData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEBB2683938B000724FA /* fontData.swift */; };
+		CE89CEBE268395B5000724FA /* colorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEBD268395B5000724FA /* colorData.swift */; };
+		CE89CEC02684DB84000724FA /* signUpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEBF2684DB84000724FA /* signUpClass.swift */; };
+		CE89CEC22684F6D6000724FA /* writetofirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89CEC12684F6D6000724FA /* writetofirebase.swift */; };
+		CEB63E9827051BF700C914AE /* recipedetailsview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB63E9727051BF700C914AE /* recipedetailsview.swift */; };
+		CEC06A9226AB6452009D238D /* addingplanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06A9126AB6451009D238D /* addingplanTableViewController.swift */; };
+		CEC06A9526AC20BA009D238D /* addingplanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06A9326AC20BA009D238D /* addingplanTableViewCell.swift */; };
+		CEC06A9826B0317F009D238D /* itemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06A9726B0317F009D238D /* itemViewController.swift */; };
+		CEC06A9C26C3E7CB009D238D /* dailymealantCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06A9B26C3E7CA009D238D /* dailymealantCollectionViewController.swift */; };
+		CEC06A9E26C4009B009D238D /* dailymealantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06A9D26C4009B009D238D /* dailymealantCollectionViewCell.swift */; };
+		CEC06AA026C45D78009D238D /* dailymealantview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06A9F26C45D78009D238D /* dailymealantview.swift */; };
+		CEC06AA326D28561009D238D /* recipesearchview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06AA226D2855F009D238D /* recipesearchview.swift */; };
+		CEC06AA526D28638009D238D /* recipeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06AA426D28638009D238D /* recipeSearchViewController.swift */; };
+		CEC06AA726D286E4009D238D /* menufunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06AA626D286E4009D238D /* menufunctions.swift */; };
+		CEC06AA926D50E43009D238D /* menuitemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC06AA826D50E42009D238D /* menuitemsTableViewCell.swift */; };
 		CED6F47A25076AB000AE743B /* DataOfApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6F47925076AB000AE743B /* DataOfApp.swift */; };
-		CED6F484250A91AD00AE743B /* customTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6F483250A91AD00AE743B /* customTableCell.swift */; };
 		CEF60868265567770005E543 /* signUpViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF60867265567770005E543 /* signUpViewController2.swift */; };
 		CEF6087726598A710005E543 /* signUpView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF6087626598A710005E543 /* signUpView3.swift */; };
 		CEF6087A2659A6E20005E543 /* signUpViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF608792659A6E10005E543 /* signUpViewController3.swift */; };
@@ -55,6 +75,10 @@
 		AF3CA03E60903C39BE2A49E5 /* Pods-Hydrate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydrate.release.xcconfig"; path = "Target Support Files/Pods-Hydrate/Pods-Hydrate.release.xcconfig"; sourceTree = "<group>"; };
 		CE236145260918B2003A4288 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CE236148260A1801003A4288 /* signUpView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpView2.swift; sourceTree = "<group>"; };
+		CE2A906426A1B05B00743620 /* addingplanViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingplanViewController2.swift; sourceTree = "<group>"; };
+		CE37D90926E3D35000311581 /* recipeparentdetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeparentdetailsViewController.swift; sourceTree = "<group>"; };
+		CE37D90B26E3D3A500311581 /* recipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeView.swift; sourceTree = "<group>"; };
+		CE37D90D26E3EBE100311581 /* recipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeViewController.swift; sourceTree = "<group>"; };
 		CE503C1F258C024900BE666E /* howtouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = howtouseViewController.swift; sourceTree = "<group>"; };
 		CE503C222595C7BB00BE666E /* addingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingViewController.swift; sourceTree = "<group>"; };
 		CE503C2A25C0679900BE666E /* Hydrate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydrate.entitlements; sourceTree = "<group>"; };
@@ -77,19 +101,35 @@
 		CE76407224FE3205002EF9C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE76408524FF921A002EF9C4 /* PlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansTableViewController.swift; sourceTree = "<group>"; };
 		CE76408D2503D4F2002EF9C4 /* customizedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customizedCell.swift; sourceTree = "<group>"; };
-		CE76408F25040E17002EF9C4 /* customTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewController.swift; sourceTree = "<group>"; };
-		CE7B1D1A250F864200F1DD43 /* showViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = showViewController.swift; path = Hydrate/View/showViewController.swift; sourceTree = SOURCE_ROOT; };
-		CE8048A125D5DD4600C98F92 /* eventdetailscontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventdetailscontroller.swift; sourceTree = "<group>"; };
 		CE8048A625DEA9D700C98F92 /* paymentmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentmodel.swift; sourceTree = "<group>"; };
 		CE8048AB25F8EDF900C98F92 /* startUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startUPViewController.swift; sourceTree = "<group>"; };
 		CE8048B125FA5FD700C98F92 /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
 		CE8048B425FA606200C98F92 /* shopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopViewController.swift; sourceTree = "<group>"; };
 		CE8048B725FBC60C00C98F92 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		CE8048BE2602403800C98F92 /* signUpViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController1.swift; sourceTree = "<group>"; };
-		CE8048C12602420C00C98F92 /* CustomerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetails.swift; sourceTree = "<group>"; };
-		CE89CE5D26775E5D000724FA /* addingplanViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingplanViewController2.swift; sourceTree = "<group>"; };
+		CE8048C12602420C00C98F92 /* CustomerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetail.swift; sourceTree = "<group>"; };
+		CE89CEAD267FB1F6000724FA /* startUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startUpView.swift; sourceTree = "<group>"; };
+		CE89CEAF2680B3BE000724FA /* menuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuTableViewController.swift; sourceTree = "<group>"; };
+		CE89CEB12680EE2B000724FA /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		CE89CEB52680EFB6000724FA /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		CE89CEB726838A4E000724FA /* signinClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signinClass.swift; sourceTree = "<group>"; };
+		CE89CEB926838ECD000724FA /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
+		CE89CEBB2683938B000724FA /* fontData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fontData.swift; sourceTree = "<group>"; };
+		CE89CEBD268395B5000724FA /* colorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorData.swift; sourceTree = "<group>"; };
+		CE89CEBF2684DB84000724FA /* signUpClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpClass.swift; sourceTree = "<group>"; };
+		CE89CEC12684F6D6000724FA /* writetofirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = writetofirebase.swift; sourceTree = "<group>"; };
+		CEB63E9727051BF700C914AE /* recipedetailsview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipedetailsview.swift; sourceTree = "<group>"; };
+		CEC06A9126AB6451009D238D /* addingplanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingplanTableViewController.swift; sourceTree = "<group>"; };
+		CEC06A9326AC20BA009D238D /* addingplanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingplanTableViewCell.swift; sourceTree = "<group>"; };
+		CEC06A9726B0317F009D238D /* itemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemViewController.swift; sourceTree = "<group>"; };
+		CEC06A9B26C3E7CA009D238D /* dailymealantCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailymealantCollectionViewController.swift; sourceTree = "<group>"; };
+		CEC06A9D26C4009B009D238D /* dailymealantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailymealantCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEC06A9F26C45D78009D238D /* dailymealantview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailymealantview.swift; sourceTree = "<group>"; };
+		CEC06AA226D2855F009D238D /* recipesearchview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesearchview.swift; sourceTree = "<group>"; };
+		CEC06AA426D28638009D238D /* recipeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeSearchViewController.swift; sourceTree = "<group>"; };
+		CEC06AA626D286E4009D238D /* menufunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menufunctions.swift; sourceTree = "<group>"; };
+		CEC06AA826D50E42009D238D /* menuitemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuitemsTableViewCell.swift; sourceTree = "<group>"; };
 		CED6F47925076AB000AE743B /* DataOfApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataOfApp.swift; sourceTree = "<group>"; };
-		CED6F483250A91AD00AE743B /* customTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableCell.swift; sourceTree = "<group>"; };
 		CEF60867265567770005E543 /* signUpViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController2.swift; sourceTree = "<group>"; };
 		CEF6087626598A710005E543 /* signUpView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpView3.swift; sourceTree = "<group>"; };
 		CEF608792659A6E10005E543 /* signUpViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController3.swift; sourceTree = "<group>"; };
@@ -170,8 +210,14 @@
 			children = (
 				CED6F47925076AB000AE743B /* DataOfApp.swift */,
 				CE8048A625DEA9D700C98F92 /* paymentmodel.swift */,
-				CE8048C12602420C00C98F92 /* CustomerDetails.swift */,
+				CE8048C12602420C00C98F92 /* CustomerDetail.swift */,
+				CE89CEB726838A4E000724FA /* signinClass.swift */,
+				CE89CEBB2683938B000724FA /* fontData.swift */,
+				CE89CEBD268395B5000724FA /* colorData.swift */,
+				CE89CEBF2684DB84000724FA /* signUpClass.swift */,
+				CE89CEC12684F6D6000724FA /* writetofirebase.swift */,
 				CE5840DC2670F2400030C102 /* DataModel.xcdatamodeld */,
+				CEC06AA626D286E4009D238D /* menufunctions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,17 +225,26 @@
 		CE76407924FE9B62002EF9C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE89CEAD267FB1F6000724FA /* startUpView.swift */,
+				CE89CEB926838ECD000724FA /* loginView.swift */,
 				CE236145260918B2003A4288 /* CollectionViewCell.swift */,
+				CEF6087C265B86410005E543 /* signUpView1.swift */,
 				CE236148260A1801003A4288 /* signUpView2.swift */,
 				CEF6087626598A710005E543 /* signUpView3.swift */,
-				CEF6087C265B86410005E543 /* signUpView1.swift */,
-				CEF60880265C015C0005E543 /* addingPlanView.swift */,
-				CE5EDE8C265CDED9000D9502 /* shopCollectionViewCell.swift */,
-				CE5EDEA126623ECA000D9502 /* addingPlanView2.swift */,
 				CE5EDEE82666F3BB000D9502 /* HomeView.swift */,
+				CEF60880265C015C0005E543 /* addingPlanView.swift */,
+				CE5EDEA126623ECA000D9502 /* addingPlanView2.swift */,
+				CE5EDE8C265CDED9000D9502 /* shopCollectionViewCell.swift */,
 				CE5840D2266E45F60030C102 /* planTableViewCell.swift */,
 				CE5840D5266F795D0030C102 /* shopView.swift */,
 				CE5840D92670BD010030C102 /* planandmealTableViewCell.swift */,
+				CEC06A9326AC20BA009D238D /* addingplanTableViewCell.swift */,
+				CEC06A9D26C4009B009D238D /* dailymealantCollectionViewCell.swift */,
+				CEC06A9F26C45D78009D238D /* dailymealantview.swift */,
+				CEC06AA226D2855F009D238D /* recipesearchview.swift */,
+				CEC06AA826D50E42009D238D /* menuitemsTableViewCell.swift */,
+				CEB63E9727051BF700C914AE /* recipedetailsview.swift */,
+				CE37D90B26E3D3A500311581 /* recipeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,23 +252,28 @@
 		CE76407A24FE9B69002EF9C4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CE7B1D1A250F864200F1DD43 /* showViewController.swift */,
-				CE76408F25040E17002EF9C4 /* customTableViewController.swift */,
 				CE8048AB25F8EDF900C98F92 /* startUPViewController.swift */,
-				CE76408D2503D4F2002EF9C4 /* customizedCell.swift */,
-				CED6F483250A91AD00AE743B /* customTableCell.swift */,
-				CE76408524FF921A002EF9C4 /* PlansTableViewController.swift */,
-				CE503C1F258C024900BE666E /* howtouseViewController.swift */,
-				CE503C222595C7BB00BE666E /* addingViewController.swift */,
-				CE8048A125D5DD4600C98F92 /* eventdetailscontroller.swift */,
-				CE8048B125FA5FD700C98F92 /* tabViewController.swift */,
-				CE8048B425FA606200C98F92 /* shopViewController.swift */,
 				CE8048B725FBC60C00C98F92 /* loginViewController.swift */,
 				CE8048BE2602403800C98F92 /* signUpViewController1.swift */,
 				CEF60867265567770005E543 /* signUpViewController2.swift */,
 				CEF608792659A6E10005E543 /* signUpViewController3.swift */,
+				CE8048B125FA5FD700C98F92 /* tabViewController.swift */,
 				CE5EDEEB2666F426000D9502 /* HomeViewController.swift */,
-				CE89CE5D26775E5D000724FA /* addingplanViewController2.swift */,
+				CE503C222595C7BB00BE666E /* addingViewController.swift */,
+				CE2A906426A1B05B00743620 /* addingplanViewController2.swift */,
+				CE76408D2503D4F2002EF9C4 /* customizedCell.swift */,
+				CE76408524FF921A002EF9C4 /* PlansTableViewController.swift */,
+				CE503C1F258C024900BE666E /* howtouseViewController.swift */,
+				CE8048B425FA606200C98F92 /* shopViewController.swift */,
+				CE89CEAF2680B3BE000724FA /* menuTableViewController.swift */,
+				CE89CEB12680EE2B000724FA /* profileViewController.swift */,
+				CE89CEB52680EFB6000724FA /* settingsViewController.swift */,
+				CEC06A9126AB6451009D238D /* addingplanTableViewController.swift */,
+				CEC06A9726B0317F009D238D /* itemViewController.swift */,
+				CEC06A9B26C3E7CA009D238D /* dailymealantCollectionViewController.swift */,
+				CEC06AA426D28638009D238D /* recipeSearchViewController.swift */,
+				CE37D90926E3D35000311581 /* recipeparentdetailsViewController.swift */,
+				CE37D90D26E3EBE100311581 /* recipeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,6 +291,7 @@
 				CE76405F24FE31FF002EF9C4 /* Resources */,
 				68F11A5FCC8667BAB447297D /* [CP] Embed Pods Frameworks */,
 				4CE108B5277C76E3D651207E /* [CP] Copy Pods Resources */,
+				CEC06AA126C7EB13009D238D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -344,6 +405,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CEC06AA126C7EB13009D238D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#if which \"/Users/user/Desktop/my apps/Hydrate/Pods/SwiftLint/swiftlint\" >/dev/null; then\n  #\"/Users/user/Desktop/my apps/Hydrate/Pods/SwiftLint/swiftlint\"\n#else\n # echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -351,38 +429,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC06AA526D28638009D238D /* recipeSearchViewController.swift in Sources */,
+				CE89CEAE267FB1F6000724FA /* startUpView.swift in Sources */,
+				CEC06A9826B0317F009D238D /* itemViewController.swift in Sources */,
+				CE89CEBE268395B5000724FA /* colorData.swift in Sources */,
 				CE503C20258C024900BE666E /* howtouseViewController.swift in Sources */,
 				CE5EDE8D265CDED9000D9502 /* shopCollectionViewCell.swift in Sources */,
+				CE89CEB22680EE2B000724FA /* profileViewController.swift in Sources */,
 				CE76406524FE31FF002EF9C4 /* AppDelegate.swift in Sources */,
 				CE8048B225FA5FD700C98F92 /* tabViewController.swift in Sources */,
+				CEC06A9E26C4009B009D238D /* dailymealantCollectionViewCell.swift in Sources */,
 				CED6F47A25076AB000AE743B /* DataOfApp.swift in Sources */,
 				CE5EDEEC2666F426000D9502 /* HomeViewController.swift in Sources */,
-				CE8048C22602420C00C98F92 /* CustomerDetails.swift in Sources */,
+				CE8048C22602420C00C98F92 /* CustomerDetail.swift in Sources */,
+				CEB63E9827051BF700C914AE /* recipedetailsview.swift in Sources */,
+				CE89CEBA26838ECD000724FA /* loginView.swift in Sources */,
+				CE89CEB02680B3BE000724FA /* menuTableViewController.swift in Sources */,
+				CEC06A9C26C3E7CB009D238D /* dailymealantCollectionViewController.swift in Sources */,
 				CE5EDEA226623ECA000D9502 /* addingPlanView2.swift in Sources */,
 				CE76408624FF921A002EF9C4 /* PlansTableViewController.swift in Sources */,
+				CE37D90C26E3D3A500311581 /* recipeView.swift in Sources */,
 				CEF6087A2659A6E20005E543 /* signUpViewController3.swift in Sources */,
 				CE5840DA2670BD010030C102 /* planandmealTableViewCell.swift in Sources */,
-				CE76409025040E17002EF9C4 /* customTableViewController.swift in Sources */,
-				CE7B1D1B250F864200F1DD43 /* showViewController.swift in Sources */,
+				CEC06AA726D286E4009D238D /* menufunctions.swift in Sources */,
+				CEC06A9526AC20BA009D238D /* addingplanTableViewCell.swift in Sources */,
 				CE8048AC25F8EDF900C98F92 /* startUPViewController.swift in Sources */,
+				CE89CEC22684F6D6000724FA /* writetofirebase.swift in Sources */,
 				CE5EDEE92666F3BB000D9502 /* HomeView.swift in Sources */,
-				CE89CE5E26775E5D000724FA /* addingplanViewController2.swift in Sources */,
+				CE37D90E26E3EBE100311581 /* recipeViewController.swift in Sources */,
 				CEF6087D265B86410005E543 /* signUpView1.swift in Sources */,
 				CE8048A725DEA9D700C98F92 /* paymentmodel.swift in Sources */,
+				CE89CEC02684DB84000724FA /* signUpClass.swift in Sources */,
+				CEC06A9226AB6452009D238D /* addingplanTableViewController.swift in Sources */,
 				CE76408E2503D4F2002EF9C4 /* customizedCell.swift in Sources */,
 				CE8048B825FBC60C00C98F92 /* loginViewController.swift in Sources */,
+				CEC06AA926D50E43009D238D /* menuitemsTableViewCell.swift in Sources */,
 				CEF60881265C015C0005E543 /* addingPlanView.swift in Sources */,
 				CE5840DE2670F2400030C102 /* DataModel.xcdatamodeld in Sources */,
+				CEC06AA326D28561009D238D /* recipesearchview.swift in Sources */,
 				CE76406724FE31FF002EF9C4 /* SceneDelegate.swift in Sources */,
+				CE89CEB826838A4E000724FA /* signinClass.swift in Sources */,
+				CE37D90A26E3D35000311581 /* recipeparentdetailsViewController.swift in Sources */,
 				CE503C232595C7BC00BE666E /* addingViewController.swift in Sources */,
-				CED6F484250A91AD00AE743B /* customTableCell.swift in Sources */,
 				CE236146260918B2003A4288 /* CollectionViewCell.swift in Sources */,
 				CE5840D3266E45F60030C102 /* planTableViewCell.swift in Sources */,
+				CE2A906526A1B05B00743620 /* addingplanViewController2.swift in Sources */,
+				CEC06AA026C45D78009D238D /* dailymealantview.swift in Sources */,
 				CE8048B525FA606200C98F92 /* shopViewController.swift in Sources */,
+				CE89CEB62680EFB6000724FA /* settingsViewController.swift in Sources */,
 				CE8048BF2602403800C98F92 /* signUpViewController1.swift in Sources */,
-				CE8048A225D5DD4600C98F92 /* eventdetailscontroller.swift in Sources */,
 				CE236149260A1801003A4288 /* signUpView2.swift in Sources */,
 				CEF6087726598A710005E543 /* signUpView3.swift in Sources */,
+				CE89CEBC2683938B000724FA /* fontData.swift in Sources */,
 				CE5840D6266F795E0030C102 /* shopView.swift in Sources */,
 				CEF60868265567770005E543 /* signUpViewController2.swift in Sources */,
 			);
@@ -453,7 +551,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -508,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

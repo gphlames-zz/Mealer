@@ -6,15 +6,15 @@ target 'Hydrate' do
   use_frameworks!
 
   # Pods for Hydrate
-  pod 'PopupDialog', '~> 1.1'
   pod 'SwipeCellKit'
-  pod 'SimplePopUpMenu'
   pod 'FSCalendar'
   pod 'Firebase/Analytics'
-  pod 'FirebaseUI/Auth'
-  pod 'FirebaseUI/Google'
-  pod 'FirebaseUI/Facebook'
-  pod 'FirebaseUI/OAuth'
+  pod 'FirebaseUI/Auth', '~>7.0.0'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
   pod 'IQKeyboardManagerSwift'
   pod 'CountryPickerView'
+  pod  'SideMenu'
+  pod  'FloatingPanel'
+  pod 'SwiftLint'
 end

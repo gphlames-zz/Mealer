@@ -10,8 +10,7 @@ import UIKit
 import FSCalendar
 
 class addingPlanView: UIView {
-    let fonts = (UIApplication.shared.delegate as! AppDelegate).myAppfontAttributes16
-    let buttoncolor = (UIApplication.shared.delegate as! AppDelegate).buttonColors
+    let fonts = fontData.arial16
     lazy var calendar: FSCalendar = {
         let calendar = FSCalendar()
         calendar.translatesAutoresizingMaskIntoConstraints = false
@@ -116,11 +115,32 @@ class addingPlanView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Save plan", for: .normal)
-        button.backgroundColor = buttoncolor
+        button.backgroundColor = UIColor(named: "firstshade")
         button.layer.cornerRadius = 5
         return button
     }()
-    func setConstraints(){
+    lazy var collectionview: UICollectionView = {
+        let flowlayout = UICollectionViewFlowLayout()
+        flowlayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        flowlayout.scrollDirection = .horizontal
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.isScrollEnabled = true
+        collection.backgroundColor = .clear
+        collection.showsHorizontalScrollIndicator = false
+        return collection
+    }()
+    lazy var emptylabel: UILabel = {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: "No mealant has been created yet", attributes: [.font:UIFont(name: "Arial Italic", size: 16)])
+        label.textColor = .black
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    override func layoutSubviews() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = .white
         //MARK: - > initialization section
         let breakFastView = UIView()
         let lunchView = UIView()
@@ -136,57 +156,28 @@ class addingPlanView: UIView {
         let dinnerLabelStack = UIStackView()
         
         //MARK: - > setting property section
-    
-        lunchView.translatesAutoresizingMaskIntoConstraints = false
-        breakFastView.translatesAutoresizingMaskIntoConstraints = false
-       dinnerView.translatesAutoresizingMaskIntoConstraints = false
-        othersView.translatesAutoresizingMaskIntoConstraints = false
-        breakFastLabel.translatesAutoresizingMaskIntoConstraints = false
-        lunchLabel.translatesAutoresizingMaskIntoConstraints = false
-        dinnerLabel.translatesAutoresizingMaskIntoConstraints = false
-        othersLabel.translatesAutoresizingMaskIntoConstraints = false
-        othersLabelStack.translatesAutoresizingMaskIntoConstraints = false
-        breakFastLabelStack.translatesAutoresizingMaskIntoConstraints = false
-        lunchLabelStack.translatesAutoresizingMaskIntoConstraints = false
-        dinnerLabelStack.translatesAutoresizingMaskIntoConstraints = false
+        translatemasks(views: [lunchView,breakFastView,dinnerView,othersView,breakFastLabel,lunchLabel,dinnerLabel,othersLabel,othersLabelStack,breakFastLabelStack,lunchLabelStack,dinnerLabelStack])
         
         //MARK: - > adding subviews section
+        addsubviews(addingview: breakFastLabelStack, array: [breakFastLabel,breakFastDisplayButton,breakfastAddButton])
+        addsubviews(addingview: lunchLabelStack, array: [lunchLabel,lunchDisplayButton,lunchAddButton])
+        addsubviews(addingview: dinnerLabelStack, array: [dinnerLabel,dinnerDisplayButton,dinnerAddButton])
+        addsubviews(addingview: othersLabelStack, array: [othersLabel,othersDisplayButton,othersAddButton])
+        addsubviews(addingview: parentStack, array: [calendar,collectionview, breakFastLabelStack,breakFastTableView,breakFastView,lunchLabelStack,lunchTableView,lunchView,dinnerLabelStack,dinnerTableView,dinnerView,othersLabelStack,othersTableView,othersView,saveButton,emptylabel])
+       addsubviews(addingview: scrollView, array: [parentStack])
+        addSubview(scrollView)
         
-        breakFastLabelStack.addSubview(breakFastLabel)
-        breakFastLabelStack.addSubview(breakFastDisplayButton)
-        breakFastLabel.addSubview(breakfastAddButton)
-        lunchLabelStack.addSubview(lunchLabel)
-        lunchLabelStack.addSubview(lunchDisplayButton)
-        lunchLabelStack.addSubview(lunchAddButton)
-        dinnerLabelStack.addSubview(dinnerLabel)
-        dinnerLabelStack.addSubview(dinnerDisplayButton)
-        dinnerLabelStack.addSubview(dinnerAddButton)
-        othersLabelStack.addSubview(othersLabel)
-        othersLabelStack.addSubview(othersDisplayButton)
-        othersLabelStack.addSubview(othersAddButton)
-        parentStack.addSubview(calendar)
-        parentStack.addSubview(breakFastLabelStack)
-        parentStack.addSubview(breakFastTableView)
-        parentStack.addSubview(breakFastView)
-        parentStack.addSubview(lunchLabelStack)
-        parentStack.addSubview(lunchTableView)
-        parentStack.addSubview(lunchView)
-        parentStack.addSubview(dinnerLabelStack)
-        parentStack.addSubview(dinnerTableView)
-        parentStack.addSubview(dinnerView)
-        parentStack.addSubview(othersLabelStack)
-        parentStack.addSubview(othersTableView)
-        parentStack.addSubview(othersView)
-        parentStack.addSubview(saveButton)
-        //mainView.addSubview(parentStack)
-        scrollView.addSubview(parentStack)
-        
+        //MARK: - > parentStack Constraints
+        NSLayoutConstraint(item: scrollView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: scrollView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0).isActive = true
         //MARK: - > parentStack Constraints
         
         NSLayoutConstraint(item: parentStack, attribute: .height, relatedBy: .equal, toItem: scrollView, attribute: .height, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: parentStack, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: 1, constant: 0).isActive = true
-        parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(5)-[v1(200)]-(5)-[v2(50)]-(2)-[v3(2)]-(2)-[v10(80)]-(10)-[v4(50)]-(2)-[v5(2)]-(2)-[v11(80)]-(10)-[v6(50)]-(2)-[v7(2)]-(2)-[v12(80)]-(10)-[v8(50)]-(10)-[v9(2)]-(2)-[v13(80)]-(5)-[v14(50)]-(10)-|", options: [], metrics: nil, views: ["v1":calendar,"v2":breakFastLabelStack,"v3":breakFastView,"v4":lunchLabelStack,"v5":lunchView,"v6":dinnerLabelStack,"v7":dinnerView,"v8":othersLabelStack,"v9":othersView,"v10":breakFastTableView,"v11":lunchTableView,"v12":dinnerTableView,"v13":othersTableView,"v14":saveButton]))
+        parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(5)-[v1(200)]-(5)-[v15(100)]-(5)-[v2(50)]-(2)-[v3(2)]-(2)-[v10(80)]-(10)-[v4(50)]-(2)-[v5(2)]-(2)-[v11(80)]-(10)-[v6(50)]-(2)-[v7(2)]-(2)-[v12(80)]-(10)-[v8(50)]-(10)-[v9(2)]-(2)-[v13(80)]-(5)-[v14(50)]-(10)-|", options: [], metrics: nil, views: ["v1":calendar,"v2":breakFastLabelStack,"v3":breakFastView,"v4":lunchLabelStack,"v5":lunchView,"v6":dinnerLabelStack,"v7":dinnerView,"v8":othersLabelStack,"v9":othersView,"v10":breakFastTableView,"v11":lunchTableView,"v12":dinnerTableView,"v13":othersTableView,"v14":saveButton,"v15":collectionview]))
         parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(10)-[v0]-(10)-|", options: [], metrics: nil, views: ["v0":calendar]))
+        parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(10)-[v0]-(10)-|", options: [], metrics: nil, views: ["v0":collectionview]))
+        parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(10)-[v0]-(10)-|", options: [], metrics: nil, views: ["v0":emptylabel]))
         parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(10)-[v0]-(10)-|", options: [], metrics: nil, views: ["v0":breakFastLabelStack]))
         parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(10)-[v0]-(10)-|", options: [], metrics: nil, views: ["v0":breakFastView]))
         parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(10)-[v0]-(10)-|", options: [], metrics: nil, views: ["v0":lunchLabelStack]))
@@ -201,7 +192,9 @@ class addingPlanView: UIView {
         parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(10)-[v0]-(10)-|", options: [], metrics: nil, views: ["v0":othersTableView]))
         parentStack.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[v0(200)]", options: [], metrics: nil, views: ["v0":saveButton]))
         NSLayoutConstraint(item: saveButton, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: parentStack, attribute: .centerXWithinMargins, multiplier: 1, constant: 0).isActive = true
-        
+        NSLayoutConstraint(item: emptylabel, attribute: .top, relatedBy: .equal, toItem: calendar, attribute: .bottom, multiplier: 1, constant: 5).isActive = true
+        NSLayoutConstraint(item: emptylabel, attribute: .bottom, relatedBy: .equal, toItem: breakFastLabelStack, attribute: .top, multiplier: 1, constant: 5).isActive = true
+        NSLayoutConstraint(item: emptylabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100).isActive = true
         
         //MARK: - > breakfastLabel Constraints
         
@@ -241,5 +234,15 @@ class addingPlanView: UIView {
         lunchLabel.attributedText = NSAttributedString(string: "Lunch", attributes: fonts)
         dinnerLabel.attributedText = NSAttributedString(string: "Dinner", attributes: fonts)
         othersLabel.attributedText = NSAttributedString(string: "Others", attributes: fonts)
+    }
+    func translatemasks(views: [UIView]){
+        for view in views{
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+    func addsubviews(addingview: UIView, array:[UIView]){
+        for i in array{
+            addingview.addSubview(i)
+        }
     }
 }

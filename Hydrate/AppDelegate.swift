@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Firebase
 import CoreData
+import Firebase
 import IQKeyboardManagerSwift
 
 
@@ -16,39 +16,48 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var ispaid: Bool?
-    let myAppfontAttributes12: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial", size: 12)!]
-    let myAppfontAttributes14: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial", size: 14)!]
-    let myAppfontAttributes16: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial", size: 16)!]
-    let myAppfontAttributesBold12: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial Bold", size: 12)!]
-    let myAppfontAttributesBold14: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial Bold", size: 14)!]
-    let myAppfontAttributesBold16: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial Bold", size: 16)!]
-    let myAppfontAttributesItalic12: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial Italic", size: 12)!]
-    let myAppfontAttributesItalic14: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial Italic", size: 14)!]
-    let myAppfontAttributesItalic16: [NSAttributedString.Key:UIFont] = [.font: UIFont(name: "Arial Italic", size: 16)!]
-    let buttonColors = UIColor(named: "firstshade")
-
+    lazy var plans = [DailyPlanDetails]()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let center = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert,.sound]
-        center.requestAuthorization(options: options) { (granted, error) in
-            if !granted{
+        let options: UNAuthorizationOptions = [.alert , .sound, .badge]
+        center.requestAuthorization(options: options) { (granted , error) in
+            if !granted {
                 
             }
         }
         let defaults = UserDefaults.standard
-        if defaults.bool(forKey: "paid account"){
+        if defaults.bool(forKey: "paid account") {
             ispaid = true
-        }else{
-            
+        } else {
            ispaid = false
         }
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         // Define the menus
-
         return true
     }
-    
+    func createBreakfast() -> Breakfast {
+        let breakfast = Breakfast(context: persistentContainer.viewContext)
+        return breakfast
+    }
+    func createLunch() -> Lunch{
+        let lunch = Lunch(context: persistentContainer.viewContext)
+        return lunch
+    }
+    func createDinner() -> Dinner {
+        let dinner = Dinner(context: persistentContainer.viewContext)
+        return dinner
+    }
+    func createOthers() -> Others {
+        let others = Others(context: persistentContainer.viewContext)
+        return others
+    }
+    func createDailyplandeatails(){
+        plans.append(DailyPlanDetails(context: persistentContainer.viewContext))
+    }
+    func deletefromcontext(_ item: NSManagedObject){
+        persistentContainer.viewContext.delete(item)
+    }
     // MARK: UISceneSession Lifecycle
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
@@ -61,12 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
+        
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {

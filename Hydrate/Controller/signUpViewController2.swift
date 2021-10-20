@@ -11,15 +11,17 @@ import CountryPickerView
 
 class signUpViewController2: UIViewController{
     var customerSelectedPriorities: [String:Bool]?
-    var customerdetails = CustomerDetail()
+    var customerdetails = CustomerDetail(customerID: "", firstname: "", lastname: "", age: 0, birthday: 0, country: "", pound: true, feetboolean: true, currentweight: 0, desiredweight: 0, sex: false, feet: 0, inches: 0, cm: 0)
     var signUpView = signUpView2()
     var data = DataOfApp()
     var attributes: [NSAttributedString.Key: UIFont] = {
         return [.font: UIFont(name: "Arial", size: 12)!]
     }()
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(signUpView.mainview)
+        view.addSubview(signUpView)
+        signUpView.frame = view.frame
         // MARK: -  initialization and properties section
         view.backgroundColor = .white
         signUpView.feetPicker.delegate = self
@@ -32,7 +34,8 @@ class signUpViewController2: UIViewController{
         signUpView.inchesPicker.tintColor = .black
         navigationController?.navigationBar.isHidden = true
         let topguide = view.safeAreaLayoutGuide
-        signUpView.mainview.topAnchor.constraint(equalTo: topguide.topAnchor, constant: 1).isActive = true
+        signUpView.topAnchor.constraint(equalTo: topguide.topAnchor, constant: 1).isActive = true
+        signUpView.bottomAnchor.constraint(equalTo: topguide.bottomAnchor, constant: 1).isActive = true
         signUpView.backButton.addTarget(self, action: #selector(dismissview), for: .touchUpInside)
         let views = [signUpView.presentpoundLabel,signUpView.presentkilogramLabel,signUpView.futurepoundLabel,signUpView.futurekilogramLabel,signUpView.maleLabel,signUpView.femaleLabel,signUpView.feetLabel,signUpView.cmLabel]
         for i in views{
@@ -70,18 +73,12 @@ class signUpViewController2: UIViewController{
         }
         signUpView.continueButton.addTarget(self, action: #selector(continuefunc), for: .touchUpInside)
         // MARK: -  contrainsts section
-        NSLayoutConstraint(item: signUpView.mainview, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: signUpView.mainview, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: 0).isActive = true
-//        signUpView.cmLabel.attributedText = NSAttributedString(string: "cm", attributes: [.font: UIFont(name: "Arial", size: 14)])
-//        signUpView.feetLabel.attributedText = NSAttributedString(string: "ft", attributes: [.font: UIFont(name: "Arial", size: 14)])
-//        signUpView.presentpoundLabel.attributedText = NSAttributedString(string: "lb", attributes: [.font: UIFont(name: "Arial", size: 14)])
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: [], metrics: nil, views: ["v0":signUpView]))
         signUpView.countryPicker.showPhoneCodeInView = false
-        signUpView.setConstraints()
-        
     }
     override func viewDidAppear(_ animated: Bool) {
-        
-        
+        addbottomlayer([signUpView.presentweightStack,signUpView.futureweightStack,signUpView.allergiesTextField])
+
     }
     @objc func tap(sender: UITapGestureRecognizer){
         let the_sender = sender.view as! UILabel
@@ -148,16 +145,15 @@ class signUpViewController2: UIViewController{
         signUpcontroller3.modalPresentationStyle = .fullScreen
         present(signUpcontroller3, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addbottomlayer(_ inview: [UIView]){
+        for i in inview{
+            let layer = CALayer()
+            layer.frame = CGRect(x: 0, y: Int(i.frame.height) - 1, width: Int(i.frame.width), height: 1)
+            layer.backgroundColor = UIColor.systemBlue.cgColor
+            i.layer.addSublayer(layer)
+        }
     }
-    */
+
 
 }
 extension signUpViewController2: UIGestureRecognizerDelegate{

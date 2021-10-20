@@ -9,11 +9,13 @@
 import UIKit
 
 class planandmealTableViewCell: UITableViewCell {
-    let fonts = (UIApplication.shared.delegate as! AppDelegate).myAppfontAttributesItalic16
+    let fonts = fontData.arial14
    lazy var imageview: UIImageView = {
         let imageview = UIImageView()
         imageview.contentMode = .scaleAspectFit
         imageview.translatesAutoresizingMaskIntoConstraints = false
+    imageview.layer.borderWidth = 0.5
+    imageview.layer.borderColor = UIColor.black.cgColor
         return imageview
     }()
     lazy var nameLabel: UILabel = {
@@ -34,37 +36,30 @@ class planandmealTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
-     func setConstraints(){
+    lazy var stackview: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    override func layoutSubviews() {
+        stackview.addSubview(timeLabel)
+        stackview.addSubview(nameLabel)
         contentView.addSubview(imageview)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(timeLabel)
+        contentView.addSubview(stackview)
         contentView.addSubview(emptylabel)
         
+        
+       
         // MARK: - imageview constraints
         
-        NSLayoutConstraint(item: imageview, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 5).isActive = false
-        NSLayoutConstraint(item: imageview, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 5).isActive = false
-        NSLayoutConstraint(item: imageview, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 5).isActive = false
-        NSLayoutConstraint(item: imageview, attribute: .trailing, relatedBy: .equal, toItem: nameLabel, attribute: .leading, multiplier: 1, constant: 5).isActive = false
-        NSLayoutConstraint(item: imageview, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 80).isActive = false
-        
-        // MARK: - nameLabel constraints
-        NSLayoutConstraint(item: nameLabel, attribute: .bottom, relatedBy: .equal, toItem: timeLabel, attribute: .top, multiplier: 1, constant: 0).isActive = false
-        NSLayoutConstraint(item: nameLabel, attribute: .leading, relatedBy: .equal, toItem: imageview, attribute: .trailing, multiplier: 1, constant: 0).isActive = false
-        NSLayoutConstraint(item: nameLabel, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: 5).isActive = false
-        NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 5).isActive = false
-        
-        // MARK: - timelabel constraints
-        
-        NSLayoutConstraint(item: timeLabel, attribute: .leading, relatedBy: .equal, toItem: imageview, attribute: .trailing, multiplier: 1, constant: 0).isActive = false
-        NSLayoutConstraint(item: timeLabel, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 5).isActive = false
-        NSLayoutConstraint(item: timeLabel, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .trailing, multiplier: 1, constant: 5).isActive = false
-        NSLayoutConstraint(item: timeLabel, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 5).isActive = false
-        
-        
-        // MARK: - emptyLabel constraints
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: [], metrics: nil, views: ["v0":emptylabel]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(5)-[v0(60)]-(5)-[v1]-(5)-|", options: [], metrics: nil, views: ["v0":imageview,"v1":stackview]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(5)-[v0(60)]-(5)-|", options: [], metrics: nil, views: ["v0":imageview]))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(5)-[v0(60)]-(5)-|", options: [], metrics: nil, views: ["v0":stackview]))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: [], metrics: nil, views: ["v0":emptylabel]))
-        
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: [], metrics: nil, views: ["v0":emptylabel]))
+        // MARK: - nameLabel constraints
+        stackview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: [], metrics: nil, views: ["v0":nameLabel]))
+        stackview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: [], metrics: nil, views: ["v0":timeLabel]))
+        stackview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(30)][v1(30)]|", options: [], metrics: nil, views: ["v0":nameLabel,"v1":timeLabel]))
     }
 }

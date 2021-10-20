@@ -1,6 +1,7 @@
 Hydrate/Controller/customizedCell.swift
 Hydrate/Model/paymentmodel.swift
 Hydrate/Assets.xcassets/
+Hydrate/GoogleService-Info.plist
 Pods/
 ## User settings
 xcuserdata/
