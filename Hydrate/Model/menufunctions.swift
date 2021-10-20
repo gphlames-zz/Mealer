@@ -80,7 +80,7 @@ class recipefunctions{
     var foods = ["vegetables","rice","potatoes","chocolate"]
     static let shared = recipefunctions()
     func getrecipe(completion: @escaping (menuItems?) -> Void){
-        let endpoint: String = "https://api.spoonacular.com/food/menuItems/search?query=\(String(describing: foods.randomElement()!))&number=\(ispaid())&apiKey=7321ce3230f844b987ef68de24eeea57"
+        let endpoint: String = "https://api.spoonacular.com/food/menuItems/search?query=\(String(describing: foods.randomElement()!))&number=\(ispaid())&apiKey="
         let url = URL(string: endpoint)
         print(endpoint)
         var request = URLRequest(url: url!)
@@ -143,7 +143,7 @@ class recipefunctions{
     }
     
     func getProductDetails(_ productid: UInt, completion: @escaping (productinfo?) -> Void){
-        let endpoint = "https://api.spoonacular.com/food/products/\(productid)?apiKey=7321ce3230f844b987ef68de24eeea57"
+        let endpoint = "https://api.spoonacular.com/food/products/\(productid)?apiKey="
         let url = URL(string: endpoint)
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
