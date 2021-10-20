@@ -14,6 +14,7 @@
 		CE37D90A26E3D35000311581 /* recipeparentdetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D90926E3D35000311581 /* recipeparentdetailsViewController.swift */; };
 		CE37D90C26E3D3A500311581 /* recipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D90B26E3D3A500311581 /* recipeView.swift */; };
 		CE37D90E26E3EBE100311581 /* recipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37D90D26E3EBE100311581 /* recipeViewController.swift */; };
+		CE4D26D22720C63B00210E9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE4D26D12720C63B00210E9C /* GoogleService-Info.plist */; };
 		CE503C20258C024900BE666E /* howtouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE503C1F258C024900BE666E /* howtouseViewController.swift */; };
 		CE503C232595C7BC00BE666E /* addingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE503C222595C7BB00BE666E /* addingViewController.swift */; };
 		CE503C2C25C067B600BE666E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE503C2B25C067B600BE666E /* StoreKit.framework */; };
@@ -24,7 +25,6 @@
 		CE5840DE2670F2400030C102 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE5840DC2670F2400030C102 /* DataModel.xcdatamodeld */; };
 		CE5EDE8D265CDED9000D9502 /* shopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EDE8C265CDED9000D9502 /* shopCollectionViewCell.swift */; };
 		CE5EDEA226623ECA000D9502 /* addingPlanView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EDEA126623ECA000D9502 /* addingPlanView2.swift */; };
-		CE5EDEA526669ED4000D9502 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5EDEA426669ED4000D9502 /* GoogleService-Info.plist */; };
 		CE5EDEE92666F3BB000D9502 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EDEE82666F3BB000D9502 /* HomeView.swift */; };
 		CE5EDEEC2666F426000D9502 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5EDEEB2666F426000D9502 /* HomeViewController.swift */; };
 		CE76406524FE31FF002EF9C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76406424FE31FF002EF9C4 /* AppDelegate.swift */; };
@@ -79,6 +79,7 @@
 		CE37D90926E3D35000311581 /* recipeparentdetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeparentdetailsViewController.swift; sourceTree = "<group>"; };
 		CE37D90B26E3D3A500311581 /* recipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeView.swift; sourceTree = "<group>"; };
 		CE37D90D26E3EBE100311581 /* recipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeViewController.swift; sourceTree = "<group>"; };
+		CE4D26D12720C63B00210E9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE503C1F258C024900BE666E /* howtouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = howtouseViewController.swift; sourceTree = "<group>"; };
 		CE503C222595C7BB00BE666E /* addingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingViewController.swift; sourceTree = "<group>"; };
 		CE503C2A25C0679900BE666E /* Hydrate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hydrate.entitlements; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		CE5840DD2670F2400030C102 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CE5EDE8C265CDED9000D9502 /* shopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE5EDEA126623ECA000D9502 /* addingPlanView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingPlanView2.swift; sourceTree = "<group>"; };
-		CE5EDEA426669ED4000D9502 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE5EDEE82666F3BB000D9502 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CE5EDEEB2666F426000D9502 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE76406124FE31FF002EF9C4 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +195,7 @@
 				CE76406424FE31FF002EF9C4 /* AppDelegate.swift */,
 				CE76406624FE31FF002EF9C4 /* SceneDelegate.swift */,
 				CE76407224FE3205002EF9C4 /* Info.plist */,
-				CE5EDEA426669ED4000D9502 /* GoogleService-Info.plist */,
+				CE4D26D12720C63B00210E9C /* GoogleService-Info.plist */,
 				CE76406F24FE3205002EF9C4 /* LaunchScreen.storyboard */,
 				CE76406D24FE3205002EF9C4 /* Assets.xcassets */,
 				CE76407824FE9B59002EF9C4 /* Model */,
@@ -342,7 +342,7 @@
 			files = (
 				CE76407124FE3205002EF9C4 /* LaunchScreen.storyboard in Resources */,
 				CE76406E24FE3205002EF9C4 /* Assets.xcassets in Resources */,
-				CE5EDEA526669ED4000D9502 /* GoogleService-Info.plist in Resources */,
+				CE4D26D22720C63B00210E9C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
