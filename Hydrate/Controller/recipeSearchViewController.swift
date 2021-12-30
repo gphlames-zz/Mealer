@@ -12,11 +12,14 @@ class recipeSearchViewController: UIViewController {
     let recipeview = recipesearchview()
     var source:[recipe] = []
     var cache = NSCache<NSString, UIImage>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(recipeview)
-        recipeview.frame = view.frame
-        recipeview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        let window = UIApplication.shared.windows.first
+        let toppadding = window?.safeAreaInsets.top
+        print(toppadding)
+        recipeview.frame = CGRect(x: 0, y: (toppadding ?? 0.0)!, width: view.frame.width, height: view.frame.height - (toppadding ?? 0.0)!)
         recipeview.tableView.delegate = self
         recipeview.tableView.dataSource = self
         recipeview.tableView.register(menuitemsTableViewCell.self, forCellReuseIdentifier: "menucells")
